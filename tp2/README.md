@@ -1,8 +1,4 @@
 
-
-
-
-
 #### 1
 ```
 static void testComputePrice(void **){
@@ -29,5 +25,6 @@ static void testComputePrice(void **){
 }
 ```
 
+On a créé un fichier `auto.sh` pour automatiser la compilation et la génération du Code Coverage Report
 
-
+De plus, nous avons aussi testé l'option -Wl,--wrap=recupAge de gcc afin de remplacer recupAge par son mock. Cela pourrait s'avérer utile dans le cas où elle serait déjà définie dans `age.h`.
