@@ -21,5 +21,5 @@ clean:
 
 
 mrproper: clean
-	rm testAll
-	rm result.xml
+	rm -f testAll
+	rm -f result.xml
