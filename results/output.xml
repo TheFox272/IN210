@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.8.8 on win32)" generated="2024-03-01T12:19:07.718021" rpa="false" schemaversion="5">
+<suite id="s1" name="IN210" source="C:\Jean\Scolarité\ENSTA\Cours\2A\Informatique\IN210">
+<suite id="s1-s1" name="TP5" source="C:\Jean\Scolarité\ENSTA\Cours\2A\Informatique\IN210\TP5">
+<suite id="s1-s1-s1" name="Chuck1" source="C:\Jean\Scolarité\ENSTA\Cours\2A\Informatique\IN210\TP5\chuck1.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2024-03-01T12:19:08.072020" level="INFO">Creating Session using : alias=chuck, url=https://api.chucknorris.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>chuck</arg>
+<arg>${endpoint}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-03-01T12:19:08.071024" elapsed="0.001996"/>
+</kw>
+<test id="s1-s1-s1-t1" name="récupérer les catégories" line="23">
+<kw name="récupérer les catégories">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-03-01T12:19:08.290019" level="INFO">GET Request : url=https://api.chucknorris.io/jokes/categories 
+ path_url=/jokes/categories 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-03-01T12:19:08.290019" level="INFO">GET Response : url=https://api.chucknorris.io/jokes/categories 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 01 Mar 2024 11:19:07 GMT', 'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1709291947&amp;sid=812dcc77-0bd0-43b1-a5f1-b25750382959&amp;s=xcILQw8tKnB%2Fis3My7zE3dobh2lMtA0BH5P0V3Y99ao%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1709291947&amp;sid=812dcc77-0bd0-43b1-a5f1-b25750382959&amp;s=xcILQw8tKnB%2Fis3My7zE3dobh2lMtA0BH5P0V3Y99ao%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '85d8c00ef9a971c0-LHR', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=["animal","career","celebrity","dev","explicit","fashion","food","history","money","movie","music","political","religion","science","sport","travel"] 
+ </msg>
+<msg time="2024-03-01T12:19:08.291019" level="INFO">C:\Users\Jean\anaconda3\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.chucknorris.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg time="2024-03-01T12:19:08.295022" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>chuck</arg>
+<arg>${categorie}</arg>
+<arg>expected_status= 200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.083020" elapsed="0.212002"/>
+</kw>
+<return>
+<value>${response.json()}</value>
+<status status="PASS" start="2024-03-01T12:19:08.296023" elapsed="0.000000"/>
+</return>
+<msg time="2024-03-01T12:19:08.299022" level="INFO">${cat} = ['animal', 'career', 'celebrity', 'dev', 'explicit', 'fashion', 'food', 'history', 'money', 'movie', 'music', 'political', 'religion', 'science', 'sport', 'travel']</msg>
+<var>${cat}</var>
+<status status="PASS" start="2024-03-01T12:19:08.079022" elapsed="0.220999"/>
+</kw>
+<kw name="afficher les catégories ${cat}" source_name="afficher les catégories ${cat}">
+<kw name="récupérer les catégories">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-03-01T12:19:08.353021" level="INFO">GET Request : url=https://api.chucknorris.io/jokes/categories 
+ path_url=/jokes/categories 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-03-01T12:19:08.354021" level="INFO">GET Response : url=https://api.chucknorris.io/jokes/categories 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 01 Mar 2024 11:19:07 GMT', 'Content-Type': 'application/json;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1709291947&amp;sid=812dcc77-0bd0-43b1-a5f1-b25750382959&amp;s=xcILQw8tKnB%2Fis3My7zE3dobh2lMtA0BH5P0V3Y99ao%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1709291947&amp;sid=812dcc77-0bd0-43b1-a5f1-b25750382959&amp;s=xcILQw8tKnB%2Fis3My7zE3dobh2lMtA0BH5P0V3Y99ao%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '85d8c00fba6071c0-LHR', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=["animal","career","celebrity","dev","explicit","fashion","food","history","money","movie","music","political","religion","science","sport","travel"] 
+ </msg>
+<msg time="2024-03-01T12:19:08.355020" level="INFO">C:\Users\Jean\anaconda3\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.chucknorris.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg time="2024-03-01T12:19:08.358023" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>chuck</arg>
+<arg>${categorie}</arg>
+<arg>expected_status= 200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.305023" elapsed="0.054014"/>
+</kw>
+<return>
+<value>${response.json()}</value>
+<status status="PASS" start="2024-03-01T12:19:08.361022" elapsed="0.000000"/>
+</return>
+<msg time="2024-03-01T12:19:08.363022" level="INFO">@{cat} = [ animal | career | celebrity | dev | explicit | fashion | food | history | money | movie | music | political | religion | science | sport | travel ]</msg>
+<var>@{cat}</var>
+<status status="PASS" start="2024-03-01T12:19:08.304021" elapsed="0.060003"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.368024" elapsed="0.003012"/>
+</kw>
+<var name="${categorie}">animal</var>
+<status status="PASS" start="2024-03-01T12:19:08.367026" elapsed="0.004999"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.373026" elapsed="0.001994"/>
+</kw>
+<var name="${categorie}">career</var>
+<status status="PASS" start="2024-03-01T12:19:08.372025" elapsed="0.002995"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.376020" elapsed="0.000999"/>
+</kw>
+<var name="${categorie}">celebrity</var>
+<status status="PASS" start="2024-03-01T12:19:08.375020" elapsed="0.001999"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.378021" elapsed="0.002008"/>
+</kw>
+<var name="${categorie}">dev</var>
+<status status="PASS" start="2024-03-01T12:19:08.378021" elapsed="0.003007"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.383024" elapsed="0.000998"/>
+</kw>
+<var name="${categorie}">explicit</var>
+<status status="PASS" start="2024-03-01T12:19:08.382061" elapsed="0.002962"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.386025" elapsed="0.001998"/>
+</kw>
+<var name="${categorie}">fashion</var>
+<status status="PASS" start="2024-03-01T12:19:08.386025" elapsed="0.001998"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.389022" elapsed="0.002001"/>
+</kw>
+<var name="${categorie}">food</var>
+<status status="PASS" start="2024-03-01T12:19:08.389022" elapsed="0.002001"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.393026" elapsed="0.003023"/>
+</kw>
+<var name="${categorie}">history</var>
+<status status="PASS" start="2024-03-01T12:19:08.392027" elapsed="0.007000"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.400025" elapsed="0.001997"/>
+</kw>
+<var name="${categorie}">money</var>
+<status status="PASS" start="2024-03-01T12:19:08.399027" elapsed="0.002995"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.404022" elapsed="0.000999"/>
+</kw>
+<var name="${categorie}">movie</var>
+<status status="PASS" start="2024-03-01T12:19:08.403022" elapsed="0.003001"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.407025" elapsed="0.002999"/>
+</kw>
+<var name="${categorie}">music</var>
+<status status="PASS" start="2024-03-01T12:19:08.406023" elapsed="0.005010"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.416022" elapsed="0.002002"/>
+</kw>
+<var name="${categorie}">political</var>
+<status status="PASS" start="2024-03-01T12:19:08.415026" elapsed="0.004000"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.421022" elapsed="0.002001"/>
+</kw>
+<var name="${categorie}">religion</var>
+<status status="PASS" start="2024-03-01T12:19:08.420025" elapsed="0.002998"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.424023" elapsed="0.003998"/>
+</kw>
+<var name="${categorie}">science</var>
+<status status="PASS" start="2024-03-01T12:19:08.423023" elapsed="0.006009"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.434022" elapsed="0.000996"/>
+</kw>
+<var name="${categorie}">sport</var>
+<status status="PASS" start="2024-03-01T12:19:08.432026" elapsed="0.003997"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${categorie}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-01T12:19:08.437024" elapsed="0.000998"/>
+</kw>
+<var name="${categorie}">travel</var>
+<status status="PASS" start="2024-03-01T12:19:08.436023" elapsed="0.003000"/>
+</iter>
+<var>${categorie}</var>
+<value>@{cat}</value>
+<status status="PASS" start="2024-03-01T12:19:08.364024" elapsed="0.074999"/>
+</for>
+<status status="PASS" start="2024-03-01T12:19:08.302024" elapsed="0.136999"/>
+</kw>
+<status status="PASS" start="2024-03-01T12:19:08.074020" elapsed="0.366005"/>
+</test>
+<status status="PASS" start="2024-03-01T12:19:07.810026" elapsed="0.642003"/>
+</suite>
+<status status="PASS" start="2024-03-01T12:19:07.800022" elapsed="0.663005"/>
+</suite>
+<status status="PASS" start="2024-03-01T12:19:07.731019" elapsed="0.739004"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="IN210">IN210</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="TP5">IN210.TP5</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Chuck1">IN210.TP5.Chuck1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
